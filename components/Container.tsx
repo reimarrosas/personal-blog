@@ -1,11 +1,11 @@
 import { Pixels, props, Width } from '../utils/types';
 
 type containerProps = props & {
-  classes: string;
+  classes?: string;
   size: Width;
 };
 
-const sizeToPx = (w: Width): Pixels | 'auto' => {
+const sizeToPx = (w: Width): Pixels | '100%' => {
   switch (w) {
     case Width.SM:
       return '576px';
@@ -14,7 +14,7 @@ const sizeToPx = (w: Width): Pixels | 'auto' => {
     case Width.LG:
       return '968px';
     default:
-      return 'auto';
+      return '100%';
   }
 };
 
