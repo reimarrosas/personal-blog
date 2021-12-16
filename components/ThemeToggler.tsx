@@ -1,7 +1,14 @@
-import styles from '../styles/ThemeToggler.module.css';
-import { togglerProp } from '../utils/types';
+import { useContext, useState } from 'react';
 
-const ThemeToggler: React.FC<togglerProp> = ({ isLight, setIsLight }) => {
+import styles from '../styles/ThemeToggler.module.css';
+import { ThemeContext } from './ThemeProvider';
+
+const ThemeToggler: React.FC = () => {
+  const { isLight, setIsLight, isChecked, setIsChecked } =
+    useContext(ThemeContext);
+
+  const [checked, setChecked] = useState(isChecked);
+
   return (
     <>
       <label className={styles.togglerBackground} htmlFor='toggler'>
@@ -10,9 +17,16 @@ const ThemeToggler: React.FC<togglerProp> = ({ isLight, setIsLight }) => {
           type='checkbox'
           name='toggler'
           id='toggler'
-          onChange={() => setIsLight(!isLight)}
+          checked={checked}
+          onChange={() => setChecked(!checked)}
         />
-        <div className={styles.togglerCircle}></div>
+        <div
+          className={styles.togglerCircle}
+          onTransitionEnd={() => {
+            setIsChecked(checked);
+            setIsLight(!isLight);
+          }}
+        ></div>
       </label>
     </>
   );

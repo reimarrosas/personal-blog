@@ -28,3 +28,10 @@ export type LoginContextType = {
   isLoggedIn: boolean;
   setIsLoggedIn: (b: boolean) => void;
 };
+
+export type ThemeContextType = {
+  isLight: boolean;
+  setIsLight: (b: boolean) => void;
+  isChecked: boolean;
+  setIsChecked: (b: boolean) => void;
+};

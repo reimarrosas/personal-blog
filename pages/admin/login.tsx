@@ -71,7 +71,6 @@ const Login: NextPage<LoginProps> = ({ ADMIN_ID, ADMIN_PW }) => {
                 setPassword(evt.currentTarget.value)
               }
             />
-            adminPwadminPw
           </div>
           <div className='form-group'>
             <input type='submit' value='Log In' />
