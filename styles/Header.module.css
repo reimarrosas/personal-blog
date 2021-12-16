@@ -1,0 +1,26 @@
+.pageHeader {
+  box-sizing: content-box;
+  padding-block: 3rem 6rem;
+}
+
+.headerText-margin {
+  margin: 0 0 0.4em 1rem;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pageTitle {
+  font-size: 3rem;
+  letter-spacing: 0.05em;
+}
+
+.pageSubtitle {
+  color: var(--clr-accent);
+  font-size: 1rem;
+  letter-spacing: 0.035em;
+  margin-bottom: 0;
+}
