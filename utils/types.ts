@@ -16,3 +16,10 @@ export enum Width {
   AUTO
 }
 export type Pixels = `${number}px`;
+
+export type PostSignatureType = {
+  id: number;
+  updated_at: string;
+  title: string;
+  description: string;
+};

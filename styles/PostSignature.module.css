@@ -1,0 +1,24 @@
+.postSignature {
+  margin-bottom: 4rem;
+}
+
+.title {
+  color: var(--clr-accent);
+  font-size: 2.25rem;
+  font-weight: 300;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.date {
+  margin-block: 1rem 0.25rem;
+  color: var(--clr-subtext);
+  font-size: 0.75rem;
+  letter-spacing: 0.035rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  letter-spacing: 0.05em;
+  line-height: 148.2%;
+}

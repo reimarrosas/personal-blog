@@ -3,6 +3,7 @@ import { Pixels, props, Width } from '../utils/types';
 type containerProps = props & {
   classes?: string;
   size?: Width;
+  center?: boolean;
 };
 
 const sizeToPx = (w?: Width): Pixels | '100%' => {
@@ -18,14 +19,19 @@ const sizeToPx = (w?: Width): Pixels | '100%' => {
   }
 };
 
-const Container: React.FC<containerProps> = ({ children, classes, size }) => {
+const Container: React.FC<containerProps> = ({
+  children,
+  classes,
+  size,
+  center
+}) => {
   return (
     <div className={classes}>
       {children}
       <style jsx>{`
         div {
           max-width: ${sizeToPx(size)};
-          margin-inline: auto;
+          ${center ? 'margin-inline: auto;' : ''}
         }
       `}</style>
     </div>
