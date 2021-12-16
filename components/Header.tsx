@@ -6,7 +6,6 @@ import styles from '../styles/Header.module.css';
 const Header: React.FC<togglerProp> = ({ isLight, setIsLight }) => {
   return (
     <header className={styles.pageHeader}>
-      {console.log(styles.pageHeader)}
       <Container center={true} classes={styles.container} size={Width.LG}>
         <Container>
           <h1 className={`${styles['headerText-margin']} ${styles.pageTitle}`}>

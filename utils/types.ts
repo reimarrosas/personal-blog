@@ -23,3 +23,8 @@ export type PostSignatureType = {
   title: string;
   description: string;
 };
+
+export type LoginContextType = {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (b: boolean) => void;
+};
