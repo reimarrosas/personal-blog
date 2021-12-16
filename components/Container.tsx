@@ -25,6 +25,7 @@ const Container: React.FC<containerProps> = ({ children, classes, size }) => {
       <style jsx>{`
         div {
           max-width: ${sizeToPx(size)};
+          margin-inline: auto;
         }
       `}</style>
     </div>
