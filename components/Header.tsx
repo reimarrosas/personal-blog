@@ -1,9 +1,9 @@
-import { Width } from '../utils/types';
+import { togglerProp, Width } from '../utils/types';
 import Container from './Container';
 import ThemeToggler from './ThemeToggler';
 import styles from '../styles/Header.module.css';
 
-const Header: React.FC = () => {
+const Header: React.FC<togglerProp> = ({ isLight, setIsLight }) => {
   return (
     <header className={styles.pageHeader}>
       {console.log(styles.pageHeader)}
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           </h2>
         </Container>
         <Container>
-          <ThemeToggler />
+          <ThemeToggler isLight={isLight} setIsLight={setIsLight} />
         </Container>
       </Container>
     </header>

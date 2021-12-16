@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Container classes={`${getThemeClass(isLight)} container`}>
         <HeadWrapper />
-        <Header />
+        <Header isLight={isLight} setIsLight={setIsLight} />
         <Component {...pageProps} />
       </Container>
     </>
