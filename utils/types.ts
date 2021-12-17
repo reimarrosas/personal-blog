@@ -30,3 +30,8 @@ export type ThemeContextType = {
   isChecked: boolean;
   setIsChecked: (b: boolean) => void;
 };
+
+export type frontMatter = {
+  title: string;
+  description: string;
+};
