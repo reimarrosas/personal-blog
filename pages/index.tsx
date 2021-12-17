@@ -1,7 +1,10 @@
-import { PostgrestResponse } from '@supabase/supabase-js';
+import type { PostgrestResponse } from '@supabase/supabase-js';
 import type { NextPage, GetStaticPropsResult } from 'next';
+
 import Container from '../components/Container';
 import PostSignature from '../components/PostSignature';
+import { copiedArrayReverse } from '../utils/copiedArrayReverse';
+import { parseToReadableDate } from '../utils/rfcDateToReadable';
 import { supabase } from '../utils/supabase';
 import { PostSignatureType, Width } from '../utils/types';
 
@@ -10,10 +13,10 @@ const Home: NextPage<StaticPropsResult> = ({ data }) => {
     <main>
       <Container size={Width.MD} center={true}>
         <PostSignature />
-        {data.data?.map(entry => (
+        {copiedArrayReverse(data.data)?.map(entry => (
           <PostSignature
             title={entry.title}
-            date={entry.updated_at}
+            date={parseToReadableDate(entry.updated_at)}
             description={entry.description}
           />
         ))}
