@@ -1,10 +1,18 @@
-import { FormEvent, MutableRefObject, useRef, useState } from 'react';
+import { NextPage } from 'next';
+import { FormEvent, useRef, useState } from 'react';
+
 import Container from '../../components/Container';
 import { Width } from '../../utils/types';
+import uploadPost from '../../utils/uploadPost';
 
-const Upload: React.FC = () => {
+// TODO: Add Loader
+const Upload: NextPage<{ adminId?: string; adminPw?: string }> = ({
+  adminId,
+  adminPw
+}) => {
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [isValid, setIsValid] = useState(true);
   const mdFile = useRef<HTMLInputElement>(null);
 
   const handleId = (evt: FormEvent<HTMLInputElement>) =>
@@ -12,15 +20,26 @@ const Upload: React.FC = () => {
   const handlePw = (evt: FormEvent<HTMLInputElement>) =>
     setPw(evt.currentTarget.value);
 
-  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    console.log(id, pw, mdFile.current?.files);
+    const file = mdFile.current?.files;
+    const isCredsValid = id === adminId && pw === adminPw;
+    const isFileValid = file !== null && file !== undefined;
+    if (isCredsValid && isFileValid) {
+      setIsValid(true);
+      await uploadPost(file[0]);
+    } else {
+      setIsValid(false);
+    }
   };
 
   return (
     <main>
       <Container center={true} size={Width.MD}>
         <form onSubmit={handleSubmit}>
+          <div className='validationText'>
+            {!isValid && <span>Data Inputted Invalid!</span>}
+          </div>
           <div className='form-group'>
             <label htmlFor='id'>Admin ID: </label>
             <input
@@ -29,7 +48,7 @@ const Upload: React.FC = () => {
               type='text'
               name='id'
               id='id'
-              required
+              required={true}
             />
           </div>
           <div className='form-group'>
@@ -37,10 +56,10 @@ const Upload: React.FC = () => {
             <input
               value={pw}
               onChange={handlePw}
-              type='text'
+              type='password'
               name='pw'
               id='pw'
-              required
+              required={true}
             />
           </div>
           <div className='form-group'>
@@ -51,7 +70,8 @@ const Upload: React.FC = () => {
               name='mdFile'
               id='mdFile'
               accept='md'
-              required
+              required={true}
+              multiple={false}
             />
           </div>
           <div className='form-group'>
@@ -62,5 +82,11 @@ const Upload: React.FC = () => {
     </main>
   );
 };
+
+export function getStaticProps() {
+  return {
+    props: { adminId: process.env.ADMIN_ID, adminPw: process.env.ADMIN_PW }
+  };
+}
 
 export default Upload;
