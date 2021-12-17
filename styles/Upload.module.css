@@ -1,0 +1,92 @@
+.form {
+  max-width: 600px;
+  padding: 2em;
+  margin-inline: auto;
+
+  font-size: 1.5rem;
+  color: var(--clr-text);
+
+  border-radius: 5px;
+  box-shadow: 0 1px 3px var(--clr-text);
+}
+
+.validationText {
+  margin-bottom: 1em;
+  color: #ff0000;
+}
+
+.formGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formGroup + .formGroup {
+  margin-top: 2em;
+}
+
+.fileLabel {
+  flex-basis: 100%;
+}
+
+.fileInput {
+  display: none;
+}
+
+.formFileInput {
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fileName {
+  box-sizing: content-box;
+  padding: 0.5em 1.5em;
+  outline: 1px solid var(--clr-text);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.browseButton {
+  box-sizing: content-box;
+  padding: 0.5em 1em;
+  outline: 1px solid var(--clr-text);
+  background-color: var(--clr-text);
+  color: var(--clr-bg);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+
+.browseButton:hover {
+  opacity: 0.8;
+}
+
+.input {
+  color: var(--clr-bg);
+  background-color: var(--clr-text);
+  font-size: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  padding: 0.5em;
+}
+
+.button {
+  box-sizing: content-box;
+  font-size: inherit;
+  padding: 0.4em 1em;
+  color: var(--clr-bg);
+  background-color: var(--clr-accent);
+  border: 2px solid var(--clr-bg);
+  border-radius: 8px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: all 250ms ease-in-out;
+}
+
+.button:hover {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  border: 2px solid var(--clr-accent);
+}
