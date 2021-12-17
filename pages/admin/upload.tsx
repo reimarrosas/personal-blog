@@ -29,6 +29,7 @@ const Upload: React.FC = () => {
               type='text'
               name='id'
               id='id'
+              required
             />
           </div>
           <div className='form-group'>
@@ -39,6 +40,7 @@ const Upload: React.FC = () => {
               type='text'
               name='pw'
               id='pw'
+              required
             />
           </div>
           <div className='form-group'>
@@ -49,6 +51,7 @@ const Upload: React.FC = () => {
               name='mdFile'
               id='mdFile'
               accept='md'
+              required
             />
           </div>
           <div className='form-group'>
