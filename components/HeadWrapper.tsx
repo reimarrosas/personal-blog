@@ -13,6 +13,7 @@ const HeadWrapper: React.FC = () => {
         name='keywords'
         content='Blog, Personal, Programming, Tech, Projects'
       />
+      <link rel='icon' href='/favicon.svg' type='image/svg+xml' />
       <title>Autodidactics | Tech, Programming, and more!</title>
     </Head>
   );
