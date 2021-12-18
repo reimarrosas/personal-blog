@@ -51,6 +51,10 @@ pre {
   color: var(--clr-text);
 }
 
+.body-container {
+  padding-inline: 1rem;
+}
+
 a,
 a:visited,
 a:link,

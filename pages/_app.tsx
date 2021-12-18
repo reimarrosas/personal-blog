@@ -13,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <Container classes='container'>
           <Header />
-          <Component {...pageProps} />
+          <Container classes='body-container'>
+            <Component {...pageProps} />
+          </Container>
         </Container>
       </ThemeProvider>
     </>
