@@ -1,0 +1,70 @@
+.baseDiv {
+  padding-block-end: 4rem;
+  font-size: 1.2rem;
+}
+
+.baseDiv h1,
+.baseDiv h2,
+.baseDiv h3,
+.baseDiv h4,
+.baseDiv h5,
+.baseDiv h6 {
+  font-weight: 300;
+  color: var(--clr-accent);
+}
+
+.baseDiv h1 {
+  font-size: 2.5rem;
+}
+
+.baseDiv h2 {
+  font-size: 1.875rem;
+}
+
+.baseDiv h3 {
+  font-size: 1.4625rem;
+}
+
+.baseDiv h4 {
+  font-size: 1rem;
+}
+
+.baseDiv h5 {
+  font-size: 1.0375rem;
+}
+
+.baseDiv h6 {
+  font-size: 0.67rem;
+}
+
+.baseDiv a,
+.baseDiv a:link,
+.baseDiv a:visited,
+.baseDiv a:active {
+  color: var(--clr-accent);
+}
+
+.baseDiv > kbd,
+.baseDiv > samp,
+.baseDiv > code,
+.baseDiv > var,
+.baseDiv > pre {
+  padding: 1.5em;
+  border: 2px solid var(--clr-text);
+  border-radius: 10px;
+  box-shadow: 0px 1px 3px var(--clr-text);
+}
+
+.baseDiv kbd,
+.baseDiv samp,
+.baseDiv code,
+.baseDiv var,
+.baseDiv pre {
+  white-space: pre-wrap;
+}
+
+.baseDiv > * {
+  margin-bottom: 1rem;
+  letter-spacing: 0.035em;
+  line-height: 145%;
+}
