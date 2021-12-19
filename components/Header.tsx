@@ -1,10 +1,11 @@
-import { Width } from '../utils/types';
+import Link from 'next/link';
+
+import { ThemeControl, Width } from '../utils/types';
 import Container from './Container';
 import ThemeToggler from './ThemeToggler';
 import styles from '../styles/Header.module.css';
-import Link from 'next/link';
 
-const Header: React.FC = () => {
+const Header: React.FC<ThemeControl> = ({ themeValue, themeDispatcher }) => {
   return (
     <header className={styles.pageHeader}>
       <Container center={true} classes={styles.container} size={Width.LG}>
@@ -25,7 +26,10 @@ const Header: React.FC = () => {
           </h2>
         </Container>
         <Container>
-          <ThemeToggler />
+          <ThemeToggler
+            themeValue={themeValue}
+            themeDispatcher={themeDispatcher}
+          />
         </Container>
       </Container>
     </header>

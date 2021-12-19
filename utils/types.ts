@@ -24,11 +24,11 @@ export type PostSignatureType = {
   description: string;
 };
 
-export type ThemeContextType = {
-  isLight: boolean;
-  setIsLight: (b: boolean) => void;
-  isChecked: boolean;
-  setIsChecked: (b: boolean) => void;
+export type ThemeVariant = 'light' | 'dark';
+
+export type ThemeControl = {
+  themeValue: ThemeVariant;
+  themeDispatcher: (t: ThemeVariant) => void;
 };
 
 export type frontMatter = {

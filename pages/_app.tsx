@@ -4,20 +4,20 @@ import '../styles/globals.css';
 import Container from '../components/Container';
 import HeadWrapper from '../components/HeadWrapper';
 import Header from '../components/Header';
-import ThemeProvider, { ThemeContext } from '../components/ThemeProvider';
+import useTheme from '../utils/useTheme';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { themeValue, themeDispatcher } = useTheme();
+
   return (
     <>
       <HeadWrapper />
-      <ThemeProvider>
-        <Container classes='container'>
-          <Header />
-          <Container classes='body-container'>
-            <Component {...pageProps} />
-          </Container>
+      <Container classes={`theme-${themeValue} container`}>
+        <Header themeValue={themeValue} themeDispatcher={themeDispatcher} />
+        <Container classes='body-container'>
+          <Component {...pageProps} />
         </Container>
-      </ThemeProvider>
+      </Container>
     </>
   );
 }

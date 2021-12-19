@@ -22,7 +22,7 @@
   transition: left 100ms;
 }
 
-.toggler:checked ~ .togglerCircle {
+.move {
   left: calc(100% - 1.7rem);
 }
 

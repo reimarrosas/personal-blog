@@ -1,33 +1,35 @@
-import { useContext, useState } from 'react';
-
 import styles from '../styles/ThemeToggler.module.css';
-import { ThemeContext } from './ThemeProvider';
+import { ThemeControl } from '../utils/types';
+import { themeSwitcher, themeVariantOrDefault } from '../utils/useTheme';
 
-const ThemeToggler: React.FC = () => {
-  const { isLight, setIsLight, isChecked, setIsChecked } =
-    useContext(ThemeContext);
+const getIndicatorState = (theme: string | null) => {
+  const validatedTheme = themeVariantOrDefault(theme);
+  return validatedTheme === 'dark' ? 'move' : '';
+};
 
-  const [checked, setChecked] = useState(isChecked);
+const ThemeToggler: React.FC<ThemeControl> = ({
+  themeValue,
+  themeDispatcher
+}) => {
+  const handleClick = () => {
+    themeDispatcher(themeSwitcher(themeValue));
+  };
 
   return (
     <>
-      <label className={styles.togglerBackground} htmlFor='toggler'>
-        <input
-          className={`${styles.hideCheckbox} ${styles.toggler}`}
-          type='checkbox'
-          name='toggler'
-          id='toggler'
-          checked={checked}
-          onChange={() => setChecked(!checked)}
-        />
-        <div
-          className={styles.togglerCircle}
-          onTransitionEnd={() => {
-            setIsChecked(checked);
-            setIsLight(!isLight);
-          }}
-        ></div>
-      </label>
+      <button
+        type='button'
+        className={styles.togglerBackground}
+        aria-label='themeToggler'
+        onClick={handleClick}
+      >
+        <span
+          className={`${styles.togglerCircle} ${
+            styles[getIndicatorState(themeValue)]
+          }`}
+          aria-label='themeIndicator'
+        ></span>
+      </button>
     </>
   );
 };

@@ -1,8 +1,4 @@
-import { useContext } from 'react';
-import { getThemeClass } from '../utils/theme';
-
 import { Pixels, props, Width } from '../utils/types';
-import { ThemeContext } from './ThemeProvider';
 
 type containerProps = props & {
   classes?: string;
@@ -29,10 +25,8 @@ const Container: React.FC<containerProps> = ({
   size,
   center
 }) => {
-  const { isLight } = useContext(ThemeContext);
-
   return (
-    <div className={`${getThemeClass(isLight)} ${classes}`}>
+    <div className={`${classes ?? ''}`}>
       {children}
       <style jsx>{`
         div {
