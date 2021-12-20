@@ -1,36 +1,33 @@
 import { NextPage } from 'next';
-import { FormEvent, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import { FormEvent, useContext, useEffect, useRef, useState } from 'react';
 
 import Container from '../../components/Container';
 import { Width } from '../../utils/types';
 import uploadPost from '../../utils/uploadPost';
-import styles from '../../styles/Upload.module.css';
 import { nilChecker } from '../../utils/nilChecker';
+import { LoginContext } from '../../components/LoginProvider';
 
-// TODO: Add Loader
-const Upload: NextPage<{ adminId?: string; adminPw?: string }> = ({
-  adminId,
-  adminPw
-}) => {
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
-  const [isValid, setIsValid] = useState(true);
+import styles from '../../styles/Admin.module.css';
+
+const Upload: NextPage = () => {
+  const router = useRouter();
+  const { isLoggedIn } = useContext(LoginContext);
+
   const [fileName, setFile] = useState('Choose File...');
   const mdFile = useRef<HTMLInputElement>(null);
 
-  const handleId = (evt: FormEvent<HTMLInputElement>) =>
-    setId(evt.currentTarget.value);
-  const handlePw = (evt: FormEvent<HTMLInputElement>) =>
-    setPw(evt.currentTarget.value);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push('/admin/login');
+    }
+  }, []);
 
   const handleSubmit = async (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     const files = mdFile.current?.files;
-    if (nilChecker(files) && nilChecker(id) && nilChecker(files![0])) {
-      setIsValid(true);
+    if (nilChecker(files) && nilChecker(files![0])) {
       await uploadPost(files![0]);
-    } else {
-      setIsValid(false);
     }
   };
 
@@ -42,35 +39,9 @@ const Upload: NextPage<{ adminId?: string; adminPw?: string }> = ({
 
   return (
     <main>
-      <Container center={true} size={Width.MD}>
+      <Container center={true} size={Width.SM}>
         <form className={styles.form} onSubmit={handleSubmit}>
-          <div className={styles.validationText}>
-            {!isValid && <span>Data Missing or Invalid!</span>}
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor='id'>Admin ID: </label>
-            <input
-              value={id}
-              onChange={handleId}
-              type='text'
-              name='id'
-              id='id'
-              required={true}
-              className={styles.input}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label htmlFor='pw'>Admin PW: </label>
-            <input
-              value={pw}
-              onChange={handlePw}
-              type='password'
-              name='pw'
-              id='pw'
-              required={true}
-              className={styles.input}
-            />
-          </div>
+          <h1 className={styles.formTitle}>File Upload</h1>
           <div className={styles.formGroup}>
             <label className={styles.fileLabel} htmlFor='mdFile'>
               <input
@@ -81,6 +52,7 @@ const Upload: NextPage<{ adminId?: string; adminPw?: string }> = ({
                 ref={mdFile}
                 onChange={handleFileChange}
                 className={styles.fileInput}
+                required={true}
               />
               <div className={styles.formFileInput}>
                 <span className={styles.fileName}>{fileName}</span>
@@ -98,11 +70,5 @@ const Upload: NextPage<{ adminId?: string; adminPw?: string }> = ({
     </main>
   );
 };
-
-export function getStaticProps() {
-  return {
-    props: { adminId: process.env.ADMIN_ID, adminPw: process.env.ADMIN_PW }
-  };
-}
 
 export default Upload;

@@ -8,13 +8,18 @@ const uploadPost = async (file: File) => {
   const parser = markdownIt();
   const parsedContent = parser.render(content);
 
-  await supabase.from('blogs').insert([
+  await supabase.from('blogs').upsert(
+    [
+      {
+        title: data.title,
+        description: data.description,
+        content: parsedContent
+      }
+    ],
     {
-      title: data.title,
-      description: data.description,
-      content: parsedContent
+      onConflict: 'title'
     }
-  ]);
+  );
 };
 
 export default uploadPost;

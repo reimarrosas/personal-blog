@@ -35,3 +35,13 @@ export type frontMatter = {
   title: string;
   description: string;
 };
+
+export type LoginContextType = {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (b: boolean) => void;
+};
+
+export type LoginCredentials = {
+  adminId?: string;
+  adminPw?: string;
+};
