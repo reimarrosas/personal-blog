@@ -31,6 +31,8 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const SECONDS_IN_AN_HOUR = 60 * 60;
+
   const postData: PostgrestResponse<{
     content: string;
   }> = await supabase
@@ -41,7 +43,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       content: postData.body![0].content
-    }
+    },
+    revalidate: SECONDS_IN_AN_HOUR
   };
 };
 
