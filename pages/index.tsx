@@ -13,7 +13,6 @@ const Home: NextPage<StaticPropsResult> = ({ data }) => {
   return (
     <main>
       <Container size={Width.MD} center={true}>
-        <PostSignature />
         {copiedArrayReverse(data.data)?.map(entry => (
           <Link key={`${entry.id}link`} href={`/posts/${entry.id}`}>
             <a>
