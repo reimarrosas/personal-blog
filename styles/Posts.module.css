@@ -3,6 +3,10 @@
   font-size: 1.2rem;
 }
 
+.baseDiv ul {
+  padding-left: 3rem;
+}
+
 .baseDiv h1,
 .baseDiv h2,
 .baseDiv h3,
@@ -10,6 +14,7 @@
 .baseDiv h5,
 .baseDiv h6 {
   font-weight: 300;
+  margin-block: max(1.5rem, 1.2em) max(1rem, 0.8em);
   color: var(--clr-accent);
 }
 
@@ -63,8 +68,8 @@
   white-space: pre-wrap;
 }
 
-.baseDiv > * {
-  margin-bottom: 1rem;
+.baseDiv * {
   letter-spacing: 0.035em;
   line-height: 145%;
+  margin-block: 1.2rem;
 }
