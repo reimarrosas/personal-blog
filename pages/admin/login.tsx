@@ -34,7 +34,6 @@ const Login: NextPage<LoginCredentials> = ({ adminId, adminPw }) => {
     const inputCredsIsValid = id === adminId && pw === adminPw;
     if (nilChecker(adminId) && nilChecker(adminPw) && inputCredsIsValid) {
       setIsLoggedIn(true);
-      router.push('/admin/upload');
     } else {
       setIsValid(false);
     }
