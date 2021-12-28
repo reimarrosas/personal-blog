@@ -26,7 +26,7 @@ export async function getStaticPaths() {
     paths: res.data?.map(datum => ({
       params: { post: `${datum.id}` }
     })),
-    fallback: false
+    fallback: 'blocking'
   };
 }
 
