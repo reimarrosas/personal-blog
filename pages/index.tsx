@@ -8,11 +8,12 @@ import { copiedArrayReverse } from '../utils/copiedArrayReverse';
 import { parseToReadableDate } from '../utils/rfcDateToReadable';
 import { supabase } from '../utils/supabase';
 import { PostSignatureType, Width } from '../utils/types';
+import styles from '../styles/Home.module.css';
 
 const Home: NextPage<StaticPropsResult> = ({ data }) => {
   return (
     <main>
-      <Container size={Width.MD} center={true}>
+      <Container classes={styles.container} size={Width.MD} center={true}>
         {copiedArrayReverse(data.data)?.map(entry => (
           <Link key={`${entry.id}link`} href={`/posts/${entry.id}`}>
             <a>
