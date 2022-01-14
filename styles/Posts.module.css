@@ -68,6 +68,32 @@
   white-space: pre-wrap;
 }
 
+.baseDiv table {
+  overflow-x: auto;
+  border: 2px solid var(--clr-text);
+  border-collapse: collapse;
+}
+
+.baseDiv th {
+  background-color: var(--clr-accent);
+  color: var(--clr-bg);
+}
+
+.baseDiv td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.baseDiv td:nth-of-type(4n - 3) {
+  font-weight: bold;
+}
+
+.baseDiv td,
+.baseDiv th {
+  padding: 0.6em;
+  border: 2px solid var(--clr-text);
+}
+
 .baseDiv * {
   letter-spacing: 0.035em;
   line-height: 145%;
