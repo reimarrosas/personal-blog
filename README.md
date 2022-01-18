@@ -1,34 +1,100 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Autodidactics: A Personal Blog
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This is the code for my personal blog called Autodidactics that contains what I'm currently learning, what I'm currently developing, and other random topics.
 
-```bash
-npm run dev
-# or
-yarn dev
+## Index
+
+- [Introduction](#introduction)
+- [Index](#index)
+- [About](#about)
+- [Technologies](#technologies)
+- [Usage](#usage)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+    - [Note](#note)
+  - [Commands](#commands)
+- [Resources](#resources)
+- [Gallery](#gallery)
+
+## About
+
+This website either acts like a personal journal that will show my ideas or a record that can track my progress in programming. As mentioned previously, it contains any topics that I find interesting, especially the ones that help me in becoming a better developer.
+
+## Technologies
+
+- [NextJS](https://nextjs.org)
+- [Supabase](https://supabase.com)
+
+## Usage
+
+### Requirements
+
+- NodeJS >= 16.13.1
+
+### Installation
+
+1. Clone the website.
+
+```
+git clone https://github.com/reimarrosas/personal-blog
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the folder.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+cd ./personal-blog
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+3. Install the dependencies.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+npm install
+```
 
-## Learn More
+4. Run the development environment.
 
-To learn more about Next.js, take a look at the following resources:
+```
+npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Note
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+These steps will run the baseline project but it needs a `.env.local` that contains supabase credentials to run properly
 
-## Deploy on Vercel
+```
+NEXT_PUBLIC_SUPABASE_URL={your project's supabase url}
+NEXT_PUBLIC_SUPABASE_ANON_KEY={your project's anon public key}
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Commands
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `npm run dev` - launches the application in development mode
+- `npm run build` - creates an optimized production build for the project
+- `"npm run" start` - launches the application in production mode. The application should be compiled with `"npm run" build` first.
+- `"npm run" lint` - runs ESLint for all files in `pages`, `components` and `lib` directories.
+
+## Resources
+
+- [NextJS Documentation](https://nextjs.org/docs)
+- [Supabase Documentation](https://supabase.com/docs)
+
+## Gallery
+
+- Index Page
+
+![Index Page of Autodidactics](https://i.imgur.com/zQCKr9T.png)
+
+- Posts Page
+
+![Posts Page of Autodidactics](https://i.imgur.com/p6mLu3i.png)
+
+- Admin Login Page
+
+![Admin Login Page of Autodidactics](https://i.imgur.com/ppoEL87.png)
+
+- Admin Add/Edit Post Page
+
+![Admin Add/Edit Page of Autodidactics](https://i.imgur.com/glpDQt9.png)
+
