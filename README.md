@@ -72,8 +72,8 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY={your project's anon public key}
 
 - `npm run dev` - launches the application in development mode
 - `npm run build` - creates an optimized production build for the project
-- `"npm run" start` - launches the application in production mode. The application should be compiled with `"npm run" build` first.
-- `"npm run" lint` - runs ESLint for all files in `pages`, `components` and `lib` directories.
+- `npm run start` - launches the application in production mode. The application should be compiled with `"npm run" build` first.
+- `npm run lint` - runs ESLint for all files in `pages`, `components` and `lib` directories.
 
 ## Resources
 
@@ -97,4 +97,3 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY={your project's anon public key}
 - Admin Add/Edit Post Page
 
 ![Admin Add/Edit Page of Autodidactics](https://i.imgur.com/glpDQt9.png)
-
